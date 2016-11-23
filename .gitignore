@@ -1,0 +1,7 @@
+.idea/*.xml
+.idea/*.iml
+.idea/.name
+.idea/dictionaries
+.idea/libraries
+.idea/runConfigurations
+node_modules
