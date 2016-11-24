@@ -22,7 +22,7 @@ function Site() {
     };
 
     this.selectCountry = function (country) {
-        var cnt = driver.findElement(by.xpath('//li[contains(@class,"option")]/strong[(.)="' + country + '"]'));
+        var cnt = driver.findElement(by.xpath('//li[contains(@aria-label,"' + country + '")]'));
         return cnt.getAttribute('class').then(function(text){
             if (text.indexOf('dropdown') == -1){
                 return cnt.click();
@@ -31,7 +31,7 @@ function Site() {
     };
 
     this.selectCity = function (city) {
-        return driver.findElement(by.xpath('//li[contains(@class,"option")]/ul[contains(@class,"options")]/li[contains(.,"' + city + '")]')).click();
+        return driver.findElement(by.xpath('//li[contains(@class,"dropdown-invisible-group")]/ul[contains(@class,"options")]/li[contains(text(),"' + city + '")]')).click();
     };
 
     this.selectRole = function (role) {
