@@ -9,7 +9,6 @@ global.expect = chai.expect;
 
 var webdriver = require('selenium-webdriver');
 global.by = webdriver.By;
-
 module.exports = function(){
     this.setDefaultTimeout(60000);
     this.registerHandler('BeforeFeatures', function(){
