@@ -13,7 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node node_modules\\cucumber\\bin\\cucumber.js --format json \"features\\EPAM career site2.feature\" | node_modules\\.bin\\cucumber-junit > reports\\junit.xml"
+    "test": "node node_modules\\cucumber\\bin\\cucumber.js --expand --format json \"features\\EPAM career site2.feature\" | node_modules\\.bin\\cucumber-junit > .\\reports\\junit.xml"
   },
   "repository": {
     "type": "git",
