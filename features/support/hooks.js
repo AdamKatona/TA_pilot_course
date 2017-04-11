@@ -7,14 +7,23 @@ var chai = require('chai'),
 chai.use(chaiAsPromised);
 global.expect = chai.expect;
 
+//https://www.npmjs.com/package/cucumber-html-reporter
+var reporter = require('cucumber-html-reporter');
+var options = {
+    theme: 'bootstrap',
+    jsonFile: './reports/cucumber_report.json',
+    output: './reports/cucumber_report.html',
+    reportSuiteAsScenarios: true
+};
+
 var webdriver = require('selenium-webdriver');
 global.by = webdriver.By;
-module.exports = function(){
+module.exports = function () {
     this.setDefaultTimeout(60000);
-    this.registerHandler('BeforeFeatures', function(){
+    this.registerHandler('BeforeFeatures', function () {
 
         global.driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
-        global.driver.isElementVisible = function(locator){
+        global.driver.isElementVisible = function (locator) {
             return driver.isElementPresent(locator).then(function (present) {
                 if (!present) {
                     return false;
@@ -27,7 +36,8 @@ module.exports = function(){
         return global.driver.manage().window().maximize();
     });
 
-    this.registerHandler('AfterFeatures', function(){
+    this.registerHandler('AfterFeatures', function () {
+        reporter.generate(options);
         return global.driver.quit();
     });
 };
