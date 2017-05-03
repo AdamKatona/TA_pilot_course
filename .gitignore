@@ -5,4 +5,4 @@
 .idea/libraries
 .idea/runConfigurations
 node_modules
-reports/*.*
+reports/*
