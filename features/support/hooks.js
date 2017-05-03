@@ -2,13 +2,18 @@
 
 require('chromedriver');
 require('cucumber').Util.Colors(true);
+
+var fs = require('fs');
+var path = require('path');
+var cucumberJunit = require('cucumber-junit');
+//https://www.npmjs.com/package/cucumber-html-reporter
+var reporter = require('cucumber-html-reporter');
 var chai = require('chai'),
     chaiAsPromised = require('chai-as-promised');
+
 chai.use(chaiAsPromised);
 global.expect = chai.expect;
 
-//https://www.npmjs.com/package/cucumber-html-reporter
-var reporter = require('cucumber-html-reporter');
 var options = {
     theme: 'bootstrap',
     jsonFile: './reports/cucumber_report.json',
@@ -37,6 +42,8 @@ module.exports = function () {
     });
 
     this.registerHandler('AfterFeatures', function () {
+        // console.log(cucumberJunit(JSON.stringify(require('../../reports/cucumber_report.json'))));
+        fs.writeFileSync(path.resolve('./reports/cucumber_junit.xml'),cucumberJunit(JSON.stringify(require('../../reports/cucumber_report.json'))),'utf8');
         reporter.generate(options);
         return global.driver.quit();
     });

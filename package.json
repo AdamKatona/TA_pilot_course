@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node node_modules\\cucumber\\bin\\cucumber.js --expand -f pretty \"features\\EPAM career site2.feature\" -f json:reports\\cucumber_report.json | node_modules\\.bin\\cucumber-junit > \"reports\\junit.xml\""
+    "test": "node node_modules/cucumber/bin/cucumber.js -f pretty -f json:reports/cucumber_report.json \"features\\EPAM career site2.feature\" "
   },
   "repository": {
     "type": "git",
