@@ -58,9 +58,14 @@ module.exports = function () {
     });
 
     this.After(function (scenario){
+        var today = new Date();
+        var screenshotName = today.getUTCFullYear().toString() + '_' + today.toLocaleDateString("en-us", {month: "long"}) + '_' + today.getUTCDate().toString() + '_'
+                            + Date.parse(today).toString();
+        console.log(screenshotName);
         //Attach any step screenshots to the scenario metadata
         for (var key in eachStepScreensArr) {
             scenario.attach(eachStepScreensArr[key], 'image/png');
+            fs.writeFileSync(path.resolve('./screenshots/' + screenshotName + '.png'), eachStepScreensArr[key], 'base64');
         }
         return Promise.resolve();
     });
