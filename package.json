@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node node_modules/cucumber/bin/cucumber.js -f pretty -f json:reports/cucumber_report.json \"features\\EPAM career site2.feature\" "
+    "test": "node node_modules/cucumber/bin/cucumber.js -f pretty -f json:./reports/cucumber_report.json \"features\\EPAM career site2.feature\" "
   },
   "repository": {
     "type": "git",
