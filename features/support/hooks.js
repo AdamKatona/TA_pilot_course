@@ -42,7 +42,6 @@ module.exports = function () {
     });
 
     this.registerHandler('AfterFeatures', function () {
-        // console.log(cucumberJunit(JSON.stringify(require('../../reports/cucumber_report.json'))));
         fs.writeFileSync(path.resolve('./reports/cucumber_junit.xml'),cucumberJunit(JSON.stringify(require('../../reports/cucumber_report.json'))),'utf8');
         reporter.generate(options);
         return global.driver.quit();
