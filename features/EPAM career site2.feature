@@ -24,4 +24,4 @@ Feature: EPAM career site test 2.
     Examples:
       | country | city     | position                 | location          | category                  | priority | description                                                                                               |
       | Hungary | Debrecen | Test Automation Engineer | Debrecen, Hungary | Software Test Engineering | normal   | Currently we are looking for an Automation Tester for our Debrecen office to make our team even stronger. |
-      | Hungary | Debrecen | Software Tester          | Debrecen, Hungary | Software Test Engineering | high     | Currently we are looking for a Software Tester for our Debrecen office to make our team even stronger.    |
+      | Hungary | Debrecen | Java Developer           | Debrecen, Hungary | Software Engineering      | normal   | Currently we are looking for a Java Developer for our Debrecen office to make the team even stronger.     |
