@@ -43,6 +43,7 @@ function Site() {
     };
 
     this.isPositionNameVisible = function (position) {
+        driver.sleep(3000);
         return driver.findElement(by.xpath(
             '//li[@class="search-result-item"]/div/a[.="' + position + '"]'
         )).isDisplayed();
