@@ -12,9 +12,11 @@
     "cucumber-junit": "^1.6.0",
     "selenium-webdriver": "^2.53.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jshint": "^2.9.4"
+  },
   "scripts": {
-    "test": "node node_modules/cucumber/bin/cucumber.js --expand -f pretty -f json:reports/cucumber_report.json \"features/EPAM career site2.feature\""
+    "test": "node ./node_modules/cucumber/bin/cucumber.js --expand -f pretty -f json:reports/cucumber_report.json \"features/EPAM career site2.feature\""
   },
   "repository": {
     "type": "git",
