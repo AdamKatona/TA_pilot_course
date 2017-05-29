@@ -1,7 +1,8 @@
 'use strict';
 
 require('chromedriver');
-require('cucumber').Util.Colors(true);
+// require('cucumber').Util.Colors(true);
+require('cucumber');
 
 var fs = require('fs');
 var path = require('path');
@@ -51,7 +52,7 @@ module.exports = function () {
     this.registerHandler('StepResult', function (result) {
         if (result.getStatus() === "failed") {
             return global.driver.takeScreenshot().then(function (png) {
-                eachStepScreensArr.push(new Buffer(png.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64'));
+                return eachStepScreensArr.push(new Buffer(png.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64'));
             });
         }
         return Promise.resolve();
