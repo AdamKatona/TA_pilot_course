@@ -1,7 +1,6 @@
 'use strict';
 
 require('chromedriver');
-// require('cucumber').Util.Colors(true);
 require('cucumber');
 
 var fs = require('fs');
