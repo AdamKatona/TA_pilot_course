@@ -15,6 +15,21 @@ var chai = require('chai'),
 chai.use(chaiAsPromised);
 global.expect = chai.expect;
 
+/**
+ * This following 3 functions are for handling this issues: process.nextTick(function(){ throw error; }); // prevent swallow by unhandled rejection
+ */
+process.on('unhandledRejection', function (error, promise) {
+    console.log('UPR: ' + promise + ' with ' + error);
+    console.log(error.stack)
+});
+process.on('unhandledRejection', function (err) {
+    throw err;
+});
+
+process.on('uncaughtException', function (err) {
+    log(err);
+});
+
 var options = {
     theme: 'bootstrap',
     jsonFile: './reports/cucumber_report.json',
@@ -57,10 +72,10 @@ module.exports = function () {
         return Promise.resolve();
     });
 
-    this.After(function (scenario){
+    this.After(function (scenario) {
         var today = new Date();
         var screenshotName = today.getUTCFullYear().toString() + '_' + today.toLocaleDateString("en-us", {month: "long"}) + '_' + today.getUTCDate().toString() + '_'
-                            + Date.parse(today).toString();
+            + Date.parse(today).toString();
         //Attach any step screenshots to the scenario metadata
         for (var key in eachStepScreensArr) {
             scenario.attach(eachStepScreensArr[key], 'image/png');
