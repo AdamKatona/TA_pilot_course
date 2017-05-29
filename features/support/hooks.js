@@ -27,7 +27,7 @@ process.on('unhandledRejection', function (err) {
 });
 
 process.on('uncaughtException', function (err) {
-    log(err);
+    console.log(err);
 });
 
 var options = {
