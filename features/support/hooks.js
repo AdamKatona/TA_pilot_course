@@ -49,14 +49,14 @@ module.exports = function () {
 
     this.registerHandler('BeforeFeatures', function () {
 
-        // global.driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
-        global.driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).
-        withCapabilities({
-            'browserName': 'chrome',
-            'chromeOptions': {
-                args: ['--no-sandbox']
-            }
-        }).build();
+        global.driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
+        // global.driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).
+        // withCapabilities({
+        //     'browserName': 'chrome',
+        //     'chromeOptions': {
+        //         args: ['--no-sandbox']
+        //     }
+        // }).build();
 
         global.driver.isElementVisible = function (locator) {
             return driver.isElementPresent(locator).then(function (present) {
