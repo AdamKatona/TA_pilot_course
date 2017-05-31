@@ -1,7 +1,7 @@
 {
   "name": "ta_pilot_course",
   "version": "1.0.0",
-  "description": "Test automation pilot course",
+  "description": "Test automation pilot course_",
   "main": "index.js",
   "dependencies": {
     "chai": "^3.5.0",
